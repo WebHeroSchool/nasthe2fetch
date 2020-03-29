@@ -20,8 +20,6 @@ let getDate = new Promise((resolve, reject) => {
 
 let dataRequest = fetch(`https://api.github.com/users/${name}`);
 
-fetch('https://api.github.com/users/' + name)
-
 Promise.all([dataRequest, getDate])
   .then(([request, date]) => {
     requestInfo = request;
@@ -44,7 +42,7 @@ Promise.all([dataRequest, getDate])
         }
 
         let addBio = () => {
-          et newBio = document.createElement('p');
+          let newBio = document.createElement('p');
           newBio.innerHTML = bio;
           document.body.appendChild(newBio);
         }
@@ -61,7 +59,7 @@ Promise.all([dataRequest, getDate])
         let addDate = () => {
           let newDate = document.createElement('p');
           newDate.innerHTML = requestDate;
-          body.appendChild(newDate);
+          document.body.appendChild(newDate);
         }
     
         preloader.style.display = 'none';
@@ -70,7 +68,7 @@ Promise.all([dataRequest, getDate])
         addBio();
         addAvatar();
         addDate();
-        
+
       } else {
           alert(' Профиль не найден')
       }
